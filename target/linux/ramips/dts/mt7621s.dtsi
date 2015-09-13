@@ -79,7 +79,7 @@
 			reg-io-width = <4>;
 			no-loopback-test;
 		};
-
+/*
 		spi@b00 {
 			status = "okay";
 
@@ -95,6 +95,7 @@
 			pinctrl-names = "default";
 			pinctrl-0 = <&spi_pins>;
 
+
 			m25p80@0 {
 				#address-cells = <1>;
 				#size-cells = <1>;
@@ -103,6 +104,7 @@
 				m25p,chunked-io = <32>;
 			};
 		};
+*/
 	};
 
 	pinctrl {
@@ -112,7 +114,7 @@
 
 		state_default: pinctrl0 {
 		};
-
+/*
 		spi_pins: spi {
 			spi {
 				ralink,group = "spi";
@@ -120,13 +122,14 @@
 			};
 		};
 
+
 		i2c_pins: i2c {
 			i2c {
 				ralink,group = "i2c";
 				ralink,function = "i2c";
 			};
 		};
-
+*/
 		uart1_pins: uart1 {
 			uart1 {
 				ralink,group = "uart1";
@@ -187,19 +190,21 @@
 				ralink,function = "nand";
 			};
 		};
-
+/*
 		sdhci_pins: sdhci {
 			sdhci {
 				ralink,group = "sdhci";
 				ralink,function = "sdhci";
 			};
 		};
+*/
 	};
 
 	rstctrl: rstctrl {
 		compatible = "ralink,rt2880-reset";
 		#reset-cells = <1>;
 	};
+
 
 	sdhci@1E130000 {
 		compatible = "ralink,mt7620-sdhci";
@@ -208,6 +213,7 @@
 		interrupt-parent = <&gic>;
 		interrupts = <20>;
 	};
+
 
 	xhci@1E1C0000 {
 		status = "disabled";
@@ -237,15 +243,15 @@
 			0x1e003800 0x800>;
 		#address-cells = <1>;
 		#size-cells = <1>;
-
+/*
 		partition@0 {
 			label = "uboot";
-			reg = <0x00000 0x80000>; /* 64 KB */
+			reg = <0x00000 0x80000>;
 		};
 
 		partition@80000 {
 			label = "uboot_env";
-			reg = <0x80000 0x80000>; /* 64 KB */
+			reg = <0x80000 0x80000>;
 		};
 
 		partition@100000 {
@@ -257,6 +263,7 @@
 			label = "rootfs";
 			reg = <0x140000 0xec0000>;
 		};
+*/
 	};
 
 	ethernet@1e100000 {

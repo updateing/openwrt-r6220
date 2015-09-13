@@ -984,7 +984,10 @@ endef
 define Device/r6220
   DTS := R6220
   IMAGE_SIZE := $(ralink_default_fw_size_32M)
-  KERNEL := kernel-bin | patch-dtb | relocate-kernel | lzma | uImage lzma
+  KERNEL := kernel-bin | patch-dtb | lzma | uImage lzma
+  BLOCKSIZE := 128k
+  IMAGE/default = append-kernel $$$$(BLOCKSIZE) | append-rootfs | pad-rootfs $$$$(BLOCKSIZE)
+  IMAGE/sysupgrade.bin = $$(IMAGE/default) | check-size $$$$(IMAGE_SIZE)
   IMAGES += factory.bin sysupgrade.bin
 endef
 

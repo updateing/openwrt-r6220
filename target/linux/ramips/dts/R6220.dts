@@ -42,9 +42,8 @@
 		};
 
 		partition@200000 {
-			label = "rootfs";
+			label = "firmware";
 			reg = <0x200000 0x2000000>;
-			read-only;
 		};
 
 		factory: partition@2d00000 {
@@ -52,7 +51,11 @@
 			reg = <0x2d00000 0x100000>;
 			read-only;
 		};
+	};
 
+	ethernet@1e100000 {
+        mtd-mac-address = <&factory 0x04>;
+		ralink,port-map = "llllw";
 	};
 
 	pcie@1e140000 {
