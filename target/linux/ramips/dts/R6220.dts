@@ -6,12 +6,6 @@
 	compatible = "mediatek,mt7621-eval-board", "mediatek,mt7621-soc";
 	model = "Netgear R6220";
 
-	cpus {
-		cpu@0 {
-			compatible = "mips,mips1004Kc";
-		};
-	};
-
 	memory@0 {
 		device_type = "memory";
 		reg = <0x0 0x8000000>;
@@ -54,7 +48,7 @@
 	};
 
 	ethernet@1e100000 {
-        mtd-mac-address = <&factory 0x04>;
+		mtd-mac-address = <&factory 0x04>;
 		ralink,port-map = "llllw";
 	};
 

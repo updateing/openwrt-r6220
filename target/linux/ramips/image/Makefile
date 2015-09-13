@@ -988,7 +988,7 @@ define Device/r6220
   BLOCKSIZE := 128k
   IMAGE/default = append-kernel $$$$(BLOCKSIZE) | append-rootfs | pad-rootfs $$$$(BLOCKSIZE)
   IMAGE/sysupgrade.bin = $$(IMAGE/default) | check-size $$$$(IMAGE_SIZE)
-  IMAGES += factory.bin sysupgrade.bin
+  IMAGES += sysupgrade.bin
 endef
 
 #
